@@ -865,6 +865,11 @@ class Container
             $configuration->addCustomStringFunction($name, $className);
         }
 
+        // Repository Factory configuration
+        if (isset($config['repositoryFactoryClass'])) {
+            $configuration->setRepositoryFactory(new $config['repositoryFactoryClass']);
+        }
+
         // Repository Class configuration
         if (isset($config['defaultRepositoryClass'])) {
             $configuration->setDefaultRepositoryClassName($config['defaultRepositoryClass']);
